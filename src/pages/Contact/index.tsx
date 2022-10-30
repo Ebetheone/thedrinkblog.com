@@ -2,14 +2,14 @@ import React from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 
-const Detail = () => {
+const Contact = () => {
   return (
     <div>
       <Header />
-      Detail
+      Contact
       <Footer />
     </div>
   );
 };
 
-export default Detail;
+export default Contact;
