@@ -48,8 +48,6 @@ const Main = () => {
   // function handleSubmit(event: any) {
   //   event.preventDefault();
   // }
-
-  console.dir(state);
   return (
     <div className="start">
       {state.map((item, index) => (
@@ -74,8 +72,37 @@ const Main = () => {
               </div>
             )}
             <img src={item.strDrinkThumb} alt="image" />
+            <div className="texts">
+              <div className="title">
+                {item.strIngredient1 +
+                  ", " +
+                  item.strIngredient2 +
+                  ", " +
+                  item.strIngredient3}
+              </div>
+              <div className="span">{item.strInstructions}</div>
+              <a href="/detail">read more</a>
+            </div>
           </div>
-          <div className="second">
+          <div
+            className="second"
+            onMouseEnter={() => {
+              setCheck(true);
+              setChosenIndex(index);
+            }}
+            onMouseLeave={() => setCheck(false)}
+          >
+            {check && index === chosenIndex && (
+              <div className="name">
+                <div className="title">
+                  {item.strIngredient1 +
+                    ", " +
+                    item.strIngredient2 +
+                    ", " +
+                    item.strIngredient3}
+                </div>
+              </div>
+            )}
             <img src={item.strDrinkThumb} alt="image" />
             <div className="texts">
               <div className="title">
