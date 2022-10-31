@@ -8,46 +8,15 @@ import "./style.scss";
 const Main = () => {
   const [state, setState] = useState<any[]>([]);
   const [value, setValue] = useState();
-  const [filter, setFilter] = useState();
   const [check, setCheck] = useState(false);
   const [chosenIndex, setChosenIndex] = useState<number>();
 
   useEffect(() => {
-    if (filter === "Letter") {
-      axios.get(`/search.php?f=${value}`).then((response: any) => {
-        setState(response.data.drinks);
-      });
-    } else if (filter === "Name") {
-      axios.get(`/search.php?s=${value}`).then((response: any) => {
-        setState(response.data.drinks);
-      });
-    } else if (filter === "Ingredient") {
-      axios.get(`/search.php?i=${value}`).then((response: any) => {
-        setState(response.data.drinks);
-      });
-    } else if (filter === "Random") {
-      axios.get(`/random.php`).then((response: any) => {
-        setState(response.data.drinks);
-      });
-    } else {
-      axios.get(`/search.php?s=ad`).then((response: any) => {
-        setState(response.data.drinks);
-      });
-    }
+    axios.get(`/search.php?s=ad`).then((response: any) => {
+      setState(response.data.drinks);
+    });
   }, [value]);
 
-  // function handleNameChange(event: any) {
-  //   const name = event.target.value;
-
-  //   setValue(name);
-  // }
-  // function handleTypeChange(event: any) {
-  //   const type = event.target.value;
-  //   setFilter(type);
-  // }
-  // function handleSubmit(event: any) {
-  //   event.preventDefault();
-  // }
   return (
     <div className="start">
       {state.map((item, index) => (
