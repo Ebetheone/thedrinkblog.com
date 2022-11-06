@@ -8,18 +8,21 @@ import About from "./pages/About";
 import Detail from "./pages/Detail";
 import Contact from "./pages/Contact";
 import Recipes from "./pages/Recipes";
+import { Context } from "./context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/detail" element={<Detail />} />
-        <Route path="/recipes" element={<Recipes />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </React.StrictMode>
-  </BrowserRouter>
+  <Context>
+    <BrowserRouter>
+      <React.StrictMode>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/detail" element={<Detail />} />
+          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </React.StrictMode>
+    </BrowserRouter>
+  </Context>
 );

@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "../../axios";
+import IndexContext from "../../context";
 import "./style.scss";
 
 const Main = () => {
@@ -10,6 +11,11 @@ const Main = () => {
   const [value, setValue] = useState();
   const [check, setCheck] = useState(false);
   const [chosenIndex, setChosenIndex] = useState<number>();
+
+  const ctx: any = useContext(IndexContext);
+  const haveIndex = (props: any) => {
+    ctx.haveIndex(props);
+  };
 
   useEffect(() => {
     axios.get(`/search.php?s=ad`).then((response: any) => {
@@ -50,7 +56,9 @@ const Main = () => {
                   item.strIngredient3}
               </div>
               <div className="span">{item.strInstructions}</div>
-              <a href="/detail">read more</a>
+              <a href="/detail" onClick={() => haveIndex(index)}>
+                read more
+              </a>
             </div>
           </div>
           <div
@@ -82,7 +90,9 @@ const Main = () => {
                   item.strIngredient3}
               </div>
               <div className="span">{item.strInstructions}</div>
-              <a href="/detail">read more</a>
+              <a href="/detail" onClick={() => haveIndex(index)}>
+                read more
+              </a>
             </div>
           </div>
         </div>
