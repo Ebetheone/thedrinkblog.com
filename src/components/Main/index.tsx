@@ -13,8 +13,8 @@ const Main = () => {
   const [chosenIndex, setChosenIndex] = useState<number>();
 
   const ctx: any = useContext(IndexContext);
-  const haveIndex = (props: any) => {
-    ctx.haveIndex(props);
+  const HaveIndex = (props: any) => {
+    ctx.HaveIndex(props);
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Main = () => {
                   item.strIngredient3}
               </div>
               <div className="span">{item.strInstructions}</div>
-              <a href="/detail" onClick={() => haveIndex(index)}>
+              <a href="/detail" onClick={() => HaveIndex(index)}>
                 read more
               </a>
             </div>
@@ -90,7 +90,7 @@ const Main = () => {
                   item.strIngredient3}
               </div>
               <div className="span">{item.strInstructions}</div>
-              <a href="/detail" onClick={() => haveIndex(index)}>
+              <a href="/detail" onClick={() => HaveIndex(index)}>
                 read more
               </a>
             </div>

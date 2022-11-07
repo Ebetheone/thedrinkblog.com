@@ -9,7 +9,7 @@ import "./style.scss";
 
 const Detail = () => {
   const ctx: any = useContext(IndexContext);
-  const haveIndex = ctx.state.index;
+  const haveIndex = ctx.chosenIndex;
 
   const [state, setState] = useState<any[]>([]);
   const [value, setValue] = useState();

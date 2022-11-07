@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 const IndexContext = createContext();
 
@@ -8,11 +8,14 @@ const initialState = {
 
 export const Context = (props) => {
   const [state, setState] = useState(initialState);
-  const haveIndex = (props) => {
-    setState({ ...state, index: state.index + props });
+  const HaveIndex = (props) => {
+    useEffect(() => {
+      setState({ ...state, index: props });
+    }, [props]);
   };
+  const chosenIndex = state.index;
   return (
-    <IndexContext.Provider value={{ state, haveIndex }}>
+    <IndexContext.Provider value={{ chosenIndex, HaveIndex }}>
       {props.children}
     </IndexContext.Provider>
   );
