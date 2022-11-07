@@ -1,7 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import axios from "../../axios";
 import IndexContext from "../../context";
 import "./style.scss";
@@ -56,9 +54,11 @@ const Main = () => {
                   item.strIngredient3}
               </div>
               <div className="span">{item.strInstructions}</div>
-              <a href="/detail" onClick={() => HaveIndex(index)}>
-                read more
-              </a>
+              <Link to="/detail">
+                <div className="a" onClick={() => HaveIndex(index)}>
+                  read more
+                </div>
+              </Link>
             </div>
           </div>
           <div
@@ -90,9 +90,11 @@ const Main = () => {
                   item.strIngredient3}
               </div>
               <div className="span">{item.strInstructions}</div>
-              <a href="/detail" onClick={() => HaveIndex(index)}>
-                read more
-              </a>
+              <Link to="/detail">
+                <div className="a" onClick={() => HaveIndex(index)}>
+                  read more
+                </div>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState, createContext, useEffect } from "react";
+import React, { useState, createContext } from "react";
 
 const IndexContext = createContext();
 
@@ -9,9 +9,7 @@ const initialState = {
 export const Context = (props) => {
   const [state, setState] = useState(initialState);
   const HaveIndex = (props) => {
-    useEffect(() => {
-      setState({ ...state, index: props });
-    }, [props]);
+    setState({ ...state, index: props });
   };
   const chosenIndex = state.index;
   return (
